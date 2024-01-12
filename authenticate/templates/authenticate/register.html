@@ -1,0 +1,45 @@
+{% include "home/header.html" %}
+
+<div class="container" style="background-color: rgba(255,255,255,0.4); box-shadow: 0px 0 31px 0px rgb(0 0 0 / 10%); padding: 30px; padding-bottom: 100px; border-radius: 50px;">
+<h2 class ="text-center"> Register</h2><br>
+
+<div class = "col-md-6 offset-md-3"> 
+	<form method="POST" action="{% url 'register' %}">
+		{% csrf_token %}
+
+		{% if form.errors %}
+		<div class="alert alert-danger alart-dismissable" role ="alert">
+                <button class="close" data-dismiss="alert">
+                    <small><sup>x</sup></small>
+                  </button>
+               
+
+               {% for field in form%}
+               	{% if field.errors%}
+               		{{field.errors}}
+               	{% endif%}
+
+               	{% endfor %}
+
+
+              </div>
+
+
+
+		{% endif %}
+
+
+		{{ form.as_p }}
+
+<br>
+		<button type="submit" class="btn btn-primary" style="color: black; background-color: blue" align="center">Register</button>
+	</form>
+
+            <a class="nav-link" href="{% url 'login' %}">Already Registered? Login</a>
+
+  
+</div>
+
+</div>
+
+</body>

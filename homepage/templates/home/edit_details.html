@@ -1,0 +1,49 @@
+{% include "home/header.html" %}
+
+<div>
+  <form action="{% url 'edit_details' track.RO %}" method="post">
+            {% csrf_token %}
+    <div>
+    <label for="trackid">Routine Order (R/O)</label>
+    <input type="text" id="trackid" name="trackid" value="{{ track.RO }}" required>
+  </div>
+    <div>
+      <label for="AWB">AWB</label>
+      <input type="text" id="AWB" name="AWB" value="{{ track.AWB }}">
+
+    </div>
+    <div>
+      <label for="HBL">HBL</label>
+      <input type="text" id="HBL" name="HBL" value="{{ track.HBL }}">
+
+    </div>
+    <div>
+      <label for="MBL">MBL</label>
+      <input type="text" id="MBL" name="MBL" value="{{ track.MBL }}">
+
+    </div>
+    <div>
+
+    <label for="GIGM">GIGM</label>
+    <input type="text" id="GIGM" name="GIGM" placeholder="Status" value="{{ track.GIGM }}">
+    </div>
+    <div>
+
+    <label for="CIGM">CIGM</label>
+    <input type="text" id="CIGM" name="CIGM" placeholder="Status" value="{{ track.CIGM }}">
+    </div>
+    <div>
+
+    <label for="FC">FC</label>
+    <input type="text" id="FC" name="FC" placeholder="Status" value="{{ track.FC }}">
+    </div>
+
+      <div>
+    <label for="details">Details</label>
+    <input type="text" id="details" name="details" value="{{ track.Details }}">
+      </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+    {% include "home/footer.html" %}

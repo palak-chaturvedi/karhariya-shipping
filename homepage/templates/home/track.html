@@ -1,0 +1,60 @@
+{% load static %}
+
+{% include "home/header.html" %}
+<div>
+  <form action="{% url 'track' %}" method="post">
+            {% csrf_token %}
+  <div>
+    <label for="trackid">Track ID</label>
+    <input type="text" id="trackid" name="trackid" required>
+  </div>
+    <div>
+       <label for="type">Type</label>
+      <select class="" id="type" name="type" required>
+        <option value="RO">Routine Order</option>
+        <option value="AWB">AWB</option>
+        <option value="HBL">HBL</option>
+        <option value="MBL">MBL</option>
+      </select>
+    </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <table  class="table table-striped table-bordered">
+        <thead class="thead-light">
+
+      <tr>
+          <th scope="col">Routine Order</th>
+      <th scope="col">AWB</th>
+      <th scope="col">HBL</th>
+      <th scope="col">MBL</th>
+      <th scope="col">GIGM</th>
+      <th scope="col">GIGM Date</th>
+      <th scope="col">LIGM</th>
+      <th scope="col">LIGM Date</th>
+      <th scope="col">FC</th>
+      <th scope="col">Details</th>
+      <th scope="col">LastUpdate</th>
+      </tr>
+
+        </thead>
+
+      {% for item in track %}
+     <tr>
+      <th>{{ item.RO }}</th>
+      <th>{{ item.HBL }}</th>
+      <th>{{ item.MBL }}</th>
+      <th>{{ item.AWB }}</th>
+      <th>{{ item.GIGM }}</th>
+      <th>{{ item.CIGM }}</th>
+      <th>{{ item.FC }}</th>
+      <th>{{ item.Details }}</th>
+      <th>{{ item.LastUpdate }}</th>
+    </tr>
+    {% endfor %}
+  </table>
+
+  </div>
+</div>
+
+{% include "home/footer.html" %}

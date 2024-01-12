@@ -1,0 +1,66 @@
+{% load static %}
+
+{% include "home/header.html" %}
+
+<a href="{% url 'new_id' %}">
+
+<button>New ID</button>
+</a>
+
+<hr>
+  <div>
+          <form action="{% url 'edit' %}" method="POST">
+              <label for="trackidno">Find Track ID</label>
+          <input type="text" id="trackidno" name="trackidno">
+              <label for="type">Type</label>
+      <select class="" id="type" name="type" required>
+        <option value="RO">Routine Order</option>
+        <option value="AWB">AWB</option>
+        <option value="HBL">HBL</option>
+        <option value="MBL">MBL</option>
+      </select>
+          <button type="submit">Search</button>
+          </form>
+
+      </div>
+<hr>
+
+<table  class="table table-striped table-bordered">
+        <thead class="thead-light">
+
+      <tr>
+          <th scope="col">Routine Order</th>
+      <th scope="col">AWB</th>
+      <th scope="col">HBL</th>
+      <th scope="col">MBL</th>
+      <th scope="col">GIGM</th>
+      <th scope="col">CIGM</th>
+      <th scope="col">FC</th>
+      <th scope="col">Details</th>
+      <th scope="col">LastUpdate</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+      </tr>
+
+        </thead>
+
+      {% for item in track %}
+     <tr>
+      <th>{{ item.RO }}</th>
+      <th>{{ item.HBL }}</th>
+      <th>{{ item.MBL }}</th>
+      <th>{{ item.AWB }}</th>
+      <th>{{ item.GIGM }}</th>
+      <th>{{ item.CIGM }}</th>
+      <th>{{ item.FC }}</th>
+      <th>{{ item.Details }}</th>
+      <th>{{ item.LastUpdate }}</th>
+                  <th> <a href="{% url 'edit_details' ro=item.RO %}"><button>Edit</button></a></th>
+         <th> <a href="{% url 'delete' ro=item.RO %}"><button>Delete</button></a></th>
+
+    </tr>
+    {% endfor %}
+  </table>
+{% include "home/footer.html" %}
+{% load sweetify %}
+{% sweetify %}

@@ -1,0 +1,39 @@
+{% load static %}
+
+{% include "home/header.html" %}
+
+<div class="container" style="background-color: rgba(255,255,255,0.4); box-shadow: 0px 0 31px 0px rgb(0 0 0 / 10%); padding: 30px; padding-bottom: 100px; border-radius: 50px;">
+<h2 class ="text-center"> Login</h2><br>
+
+<div class = "col-md-6 offset-md-3"> 
+	<form method ="POST">
+		
+    {% csrf_token %}
+
+	  <div class="form-group">
+
+	    <input type="text" class="form-control" placeholder="Enter Username" name = "username">
+
+	  </div>
+	  <div class="form-group">
+
+	    <input type="password" class="form-control"  placeholder="Enter Password" name="password"> 
+	  </div>
+	 
+    <div class="center" style="margin: 0;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);">
+	  <div style="padding-top: 40px;" align="center">
+			<button type="submit" class="btn btn-primary" style="color: black; background-color: blue">Login</button>
+		  </div>
+    </div>
+	</form>
+        <a class="nav-link" href="{% url 'register' %}">New? Register</a>
+</div>
+
+</div>
+
+</body>
