@@ -5,7 +5,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash 
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
-from django.contrib import messages 
+from django.contrib import messages
+from sweetify import sweetify
+
 from .forms import SignUpForm, EditProfileForm
 # Create your views here.
 def home(request): 
@@ -42,7 +44,7 @@ def register_user(request):
 			user = authenticate(username=username, password=password)
 			login(request,user)
 
-			messages.success(request, ('Youre now registered'))
+			sweetify.success(request, "You're now registered")
 			return redirect('homepage')
 	else: 
 		form = SignUpForm() 

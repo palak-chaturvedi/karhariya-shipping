@@ -234,9 +234,9 @@ def edit_details(request, ro):
         return render(request, 'home/edit_details.html', {'track':track})
 
 
-def delete(request, trackid):
-    track = Track.objects.filter(RO=trackid).delete()
-    sweetify.success(request, f"Deleted {trackid} successfully")
+def delete(request, ro):
+    track = Track.objects.filter(RO=ro).delete()
+    sweetify.success(request, f"Deleted RO number {ro} successfully")
     return redirect('edit')
 
     print(track)

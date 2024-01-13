@@ -1,87 +1,54 @@
 {% load static %}
-{% load static tailwind_tags %}
 
 {% include "home/header.html" %}
 
-<div>
+<div class="container">
   <form action="{% url 'new_id' %}" method="post">
             {% csrf_token %}
-  <div>
+  <div class="form-group">
     <label for="trackid">Routine Order (R/O)</label>
-    <input type="text" id="trackid" name="trackid" required>
+    <input class="form-control" type="text" id="trackid" name="trackid" required>
   </div>
-    <div>
+    <div class="form-group">
       <label for="AWB">AWB</label>
-      <input type="text" id="AWB" name="AWB">
+      <input class="form-control" type="text" id="AWB" name="AWB">
 
     </div>
-    <div>
+    <div class="form-group">
       <label for="HBL">HBL</label>
-      <input type="text" id="HBL" name="HBL">
+      <input class="form-control" type="text" id="HBL" name="HBL">
 
     </div>
-    <div>
+    <div class="form-group">
       <label for="MBL">MBL</label>
-      <input type="text" id="MBL" name="MBL">
+      <input class="form-control" type="text" id="MBL" name="MBL">
 
     </div>
-    <div>
+    <div class="form-group">
 
     <label for="GIGM">GIGM</label>
-    <input type="text" id="GIGM" name="GIGM" placeholder="Status">
+    <input class="form-control" type="text" id="GIGM" name="GIGM" placeholder="Status">
     </div>
-    <div>
+    <div class="form-group">
 
     <label for="CIGM">CIGM</label>
-    <input type="text" id="CIGM" name="CIGM" placeholder="Status">
+    <input class="form-control" type="text" id="CIGM" name="CIGM" placeholder="Status">
     </div>
-    <div>
+    <div class="form-group">
 
     <label for="FC">FC</label>
-    <input type="text" id="FC" name="FC" placeholder="Status">
+    <input class="form-control" type="text" id="FC" name="FC" placeholder="Status">
     </div>
 
-      <div>
+      <div class="form-group">
     <label for="details">Details</label>
-    <input type="text" id="details" name="details">
+    <input class="form-control" type="text" id="details" name="details">
       </div>
   <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+</div>
 
     {% include "home/footer.html" %}
 
-
-
-<!--{% load static %}-->
-
-<!--{% include "home/header.html" %}-->
-<!--<form action="{% url 'new_id' %}" method="post">-->
-<!--    {% csrf_token %}-->
-<!--<div class="form-group">-->
-<!--  <div class="form-group">-->
-<!--    <label for="trackid">Tracking ID</label>-->
-<!--    <input type="text" class="form-control" id="trackid"  placeholder="Enter tracking-id">-->
-<!--    <small id="emailHelp" class="form-text text-muted">This will help to find the details easily</small>-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <label for="type">Type</label>-->
-<!--<select class="form-control" id="type">-->
-<!--        <option value="awb">AWB</option>-->
-<!--        <option value="hbl">HBL</option>-->
-<!--        <option value="mbl">MBL</option>-->
-<!--    </select>-->
-<!--  </div>-->
-<!--    <label for="details">Details</label>-->
-<!--    <textarea class="form-control" id="details" aria-label="With textarea"></input>-->
-<!--  <button type="submit" class="btn btn-primary">Submit</button>-->
-
-<!--</div>-->
-
-<!--</form>-->
-
-<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>-->
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>-->
-
-<!--{% include "home/footer.html" %}-->
-<!--{% load sweetify %}-->
-<!--{% sweetify %}-->
+{% load sweetify %}
+{% sweetify %}

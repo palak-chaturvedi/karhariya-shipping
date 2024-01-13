@@ -20,18 +20,14 @@
 	    <input type="password" class="form-control"  placeholder="Enter Password" name="password"> 
 	  </div>
 	 
-    <div class="center" style="margin: 0;
-    position: absolute;
-    top: 150%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);">
-	  <div style="padding-top: 40px;" align="center">
-			<button type="submit" class="btn btn-primary" style="color: black; background-color: blue">Login</button>
+    <div class="center">
+	  <div style="padding-top: 40px;" >
+			<button type="submit" class="btn btn-primary" style="">Login</button>
 		  </div>
     </div>
 	</form>
         <a class="nav-link" href="{% url 'register' %}">New? Register</a>
+        <a class="nav-link" href="{% url 'change_password' %}">Forgot Password</a>
 </div>
 
 </div>

@@ -2,24 +2,30 @@
 
 {% include "home/header.html" %}
 
-<a href="{% url 'new_id' %}">
+<div class="container" >
+    <a href="{% url 'new_id' %}">
 
-<button>New ID</button>
+<button class="btn btn-primary mt-2">New ID</button>
 </a>
+</div>
 
 <hr>
-  <div>
+  <div class="container">
           <form action="{% url 'edit' %}" method="POST">
-              <label for="trackidno">Find Track ID</label>
-          <input type="text" id="trackidno" name="trackidno">
-              <label for="type">Type</label>
-      <select class="" id="type" name="type" required>
+              <div class="form-group">
+                  <label for="trackidno">Find Track ID</label>
+          <input class="form-control" type="text" id="trackidno" name="trackidno">
+              </div>
+              <div class="form-group">
+                  <label for="type">Type</label>
+      <select class="form-control" id="type" name="type" required>
         <option value="RO">Routine Order</option>
         <option value="AWB">AWB</option>
         <option value="HBL">HBL</option>
         <option value="MBL">MBL</option>
       </select>
-          <button type="submit">Search</button>
+              </div>
+          <button type="submit" class="btn btn-primary">Search</button>
           </form>
 
       </div>
@@ -55,8 +61,8 @@
       <th>{{ item.FC }}</th>
       <th>{{ item.Details }}</th>
       <th>{{ item.LastUpdate }}</th>
-                  <th> <a href="{% url 'edit_details' ro=item.RO %}"><button>Edit</button></a></th>
-         <th> <a href="{% url 'delete' ro=item.RO %}"><button>Delete</button></a></th>
+                  <th> <a href="{% url 'edit_details' ro=item.RO %}"><button class="btn btn-primary">Edit</button></a></th>
+         <th> <a href="{% url 'delete' ro=item.RO %}"><button class="btn btn-primary">Delete</button></a></th>
 
     </tr>
     {% endfor %}
